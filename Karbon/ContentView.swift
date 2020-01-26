@@ -11,10 +11,10 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ZStack {
-            Color.red
+            Color(red: 0/255, green: 128/255, blue: 128/255)
             .edgesIgnoringSafeArea(.all)
             TabView {
-                HomeView().colorScheme(.dark)
+                HomeView()
                     .tabItem {
                     Text("Home")
                 }.tag(1)

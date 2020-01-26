@@ -35,6 +35,8 @@ struct FriendsView: View {
                     UserRow(user: user)
                 }
             }.navigationBarTitle("Friends List")
+            .listStyle(GroupedListStyle())
+            .environment(\.horizontalSizeClass, .regular)
         }
     }
 }
