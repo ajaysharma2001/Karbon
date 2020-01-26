@@ -79,7 +79,7 @@ struct HomeView: View {
 
                     
                     Circle()
-                        .trim(from: 0, to: drawGreen ? 2/3 : 0)
+                        .trim(from: 0, to: drawGreen ? 0.92 : 0)
                         .stroke(Color.green, style: StrokeStyle(lineWidth: 30, lineCap: .round, lineJoin: .round))
                         .animation(Animation.easeOut(duration: 2.5))
                         .rotationEffect(.degrees(270))
@@ -98,7 +98,7 @@ struct HomeView: View {
                             .fontWeight(.bold)
                             .foregroundColor(Color.red)
                             .offset(x: 0, y: -10)
-                        Text("67/100")
+                        Text("97/100")
                             .font(.headline)
                             .fontWeight(.bold)
                             .foregroundColor(Color.green)

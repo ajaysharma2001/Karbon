@@ -17,6 +17,7 @@ struct ContentView: View {
                 HomeView()
                     .tabItem {
                     Text("Home")
+                        Image(systemName: "house")
                 }.tag(1)
                 FriendsView().tabItem {
                     Image(systemName: "person")
