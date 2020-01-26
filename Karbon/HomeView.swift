@@ -65,40 +65,40 @@ struct HomeView: View {
                     .frame(width: 340, height: 340)
                     Circle()
                         .trim(from: 0, to: drawRed ? 1/2 : 0)
-                        .stroke(Color.red, style: StrokeStyle(lineWidth: 15, lineCap: .round, lineJoin: .round))
+                        .stroke(Color.red, style: StrokeStyle(lineWidth: 30, lineCap: .round, lineJoin: .round))
                         .animation(Animation.easeOut(duration: 2.5))
-                        .frame(width: 300, height: 300)
+                        .frame(width: 280, height: 280)
                         .rotationEffect(.degrees(270))
                         .shadow(radius: 8)
                         .onAppear() {
                             self.drawRed = true
                         }
                     Circle()
-                        .stroke(Color.red.opacity(0.2), style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
-                        .frame(width: 300, height: 300)
+                        .stroke(Color.red.opacity(0.2), style: StrokeStyle(lineWidth: 30, lineCap: .round, lineJoin: .round))
+                        .frame(width: 280, height: 280)
 
                     
                     Circle()
                         .trim(from: 0, to: drawGreen ? 2/3 : 0)
-                        .stroke(Color.green, style: StrokeStyle(lineWidth: 15, lineCap: .round, lineJoin: .round))
+                        .stroke(Color.green, style: StrokeStyle(lineWidth: 30, lineCap: .round, lineJoin: .round))
                         .animation(Animation.easeOut(duration: 2.5))
                         .rotationEffect(.degrees(270))
                         .shadow(radius: 8)
-                        .frame(width: 260, height: 260)
+                        .frame(width: 210, height: 210)
                         .onAppear() {
                             self.drawGreen = true
                         }
                     Circle()
-                        .stroke(Color.green.opacity(0.2), style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
-                        .frame(width: 260, height: 260)
+                        .stroke(Color.green.opacity(0.2), style: StrokeStyle(lineWidth: 30, lineCap: .round, lineJoin: .round))
+                        .frame(width: 210, height: 210)
                     
                     VStack {
-                        Text("CO2 Footprint")
+                        Text("3463/6666")
                             .font(.headline)
                             .fontWeight(.bold)
                             .foregroundColor(Color.red)
                             .offset(x: 0, y: -10)
-                        Text("Points")
+                        Text("67/100")
                             .font(.headline)
                             .fontWeight(.bold)
                             .foregroundColor(Color.green)
@@ -176,6 +176,7 @@ struct HomeView: View {
                     .onAppear() {
                         self.slideIn = true
                     }
+            .shadow(radius: 8)
                 .cornerRadius(10)
                 .padding(.init(arrayLiteral: .leading, .trailing, .bottom), 17)
                 
