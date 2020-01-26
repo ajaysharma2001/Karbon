@@ -22,21 +22,40 @@ struct FriendsView: View {
     ]
     
     var body: some View {
-        NavigationView {
-            List {
-                HStack {//}(alignment: .center, spacing: 185) {
-                    Text("Users").font(.largeTitle)
-                    Spacer()
-                    Text("Points").font(.largeTitle)
-                }.padding(.leading, 5)
-                
-                ForEach(users, id: \.self) { user in
-                    // user row
-                    UserRow(user: user)
+        ZStack {
+            Color(red: 0/255, green: 128/255, blue: 128/255)
+            VStack {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 8, style: .circular).fill(Color(red: 178/255, green: 216/255, blue: 216/255))
+                        .frame(width: 340, height: 75)
+                        .padding(.bottom, 50)
+                    Text("Friends List")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.black)
+                        .offset(x: 0, y: -25)
                 }
-            }.navigationBarTitle("Friends List")
-            .listStyle(GroupedListStyle())
-            .environment(\.horizontalSizeClass, .regular)
+
+                
+                
+                List {
+                        HStack {//}(alignment: .center, spacing: 185) {
+                            Text("Users").font(.largeTitle).fontWeight(.medium).foregroundColor(Color.black)
+                            Spacer()
+                            Text("Points").font(.largeTitle).fontWeight(.medium).foregroundColor(Color.black)
+                        }.listRowBackground(Color(red: 178/255, green: 216/255, blue: 216/255))
+                        .padding(.leading, 5)
+                        
+                        ForEach(users, id: \.self) { user in
+                            // user row
+                            UserRow(user: user)
+                        }
+                }.frame(width: 340, height: 420)
+                .cornerRadius(8)
+                    .shadow(radius: 10)
+            }
+
+            
         }
     }
 }
@@ -63,7 +82,8 @@ struct UserRow: View {
                     .font(.system(.largeTitle, design: .rounded))
             }
             
-        }.padding(.init(top: 5, leading: 0, bottom: 5, trailing: 0))
+        }.listRowBackground(Color(red: 178/255, green: 216/255, blue: 216/255))
+        .padding(.init(top: 5, leading: 0, bottom: 5, trailing: 0))
     }
 }
 
