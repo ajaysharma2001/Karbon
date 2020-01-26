@@ -10,14 +10,19 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        TabView {
-            HomeView().tabItem {
-                Text("Home")
-            }.tag(1)
-            FriendsView().tabItem {
-                Image(systemName: "person")
-                Text("Friends")
-            }.tag(2)
+        ZStack {
+            Color.red
+            .edgesIgnoringSafeArea(.all)
+            TabView {
+                HomeView().colorScheme(.dark)
+                    .tabItem {
+                    Text("Home")
+                }.tag(1)
+                FriendsView().tabItem {
+                    Image(systemName: "person")
+                    Text("Friends")
+                }.tag(2)
+            }
         }
     }
 }
