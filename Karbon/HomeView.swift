@@ -32,11 +32,32 @@ struct HomeView: View {
     @State var drawDrive = false
     @State var drawFood = false
     @State var drawOther = false
+    @State var slideIn = false
+
     
     var body: some View {
         ZStack {
             Color(red: 0/255, green: 128/255, blue: 128/255)
             VStack {
+                
+                ZStack {
+                    RoundedRectangle(cornerRadius: 8, style: .circular).fill(Color(red: 178/255, green: 216/255, blue: 216/255))
+                        .frame(width: 340, height: 50)
+                        .shadow(radius: 8)
+                        .padding(.top, 10)
+                    Text("Hi Neel")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundColor(Color.black)
+                        .multilineTextAlignment(.leading)
+                        .offset(x: 0, y: 5)
+                        
+                }.animation(Animation.easeOut(duration: 1.5))
+                .offset(x: 0, y: slideIn ? 0 : -200)
+                    .onAppear() {
+                        self.slideIn = true
+                    }
+                
                 ZStack {
                     RoundedRectangle(cornerRadius: 10, style: .circular)
                         .fill(Color(red: 178/255, green: 216/255, blue: 216/255).opacity(1))
@@ -85,14 +106,17 @@ struct HomeView: View {
                     }
                 
                 }.padding(.vertical)
+                .animation(Animation.easeOut(duration: 1.5))
+                    .offset(x: slideIn ? 0 : -200, y: 0)
+                .onAppear() {
+                    self.slideIn = true
+                }
 
                 List {
                     Section(header: ZStack {
                         Color(red: 178/255, green: 216/255, blue: 216/255).frame(width: 500, height: 30)
                         Text("Break Down")
-                        Divider()
-                            .offset(x: 0, y: 10)
-                            .rotationEffect(.degrees(90))
+                            .foregroundColor(Color.black)
                     }) {
                             HStack {
                                 Text("Driving")
@@ -147,7 +171,11 @@ struct HomeView: View {
                     }
                     
                     }
-                    
+                    .animation(Animation.easeOut(duration: 1.5))
+                .offset(x: 0, y: slideIn ? 0 : 200)
+                    .onAppear() {
+                        self.slideIn = true
+                    }
                 .cornerRadius(10)
                 .padding(.init(arrayLiteral: .leading, .trailing, .bottom), 17)
                 

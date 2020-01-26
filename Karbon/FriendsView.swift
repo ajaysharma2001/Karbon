@@ -14,6 +14,8 @@ struct User: Hashable {
 }
 
 struct FriendsView: View {
+    @State var slideIn = false
+    
     let users: [User] = [
         .init(id: 0, username: "Neel", carbon_footprint: "Is in the lead!", imageName: "neel_icon", points: "93"),
         .init(id: 1, username: "Anu", carbon_footprint: "Is in 2nd place!", imageName: "anu_icon", points: "67"),
@@ -28,12 +30,13 @@ struct FriendsView: View {
                 ZStack {
                     RoundedRectangle(cornerRadius: 8, style: .circular).fill(Color(red: 178/255, green: 216/255, blue: 216/255))
                         .frame(width: 340, height: 75)
-                        .padding(.bottom, 50)
+                        .padding(.bottom, 20)
+                        .shadow(radius: 8)
                     Text("Friends List")
                         .font(.largeTitle)
                         .fontWeight(.bold)
                         .foregroundColor(Color.black)
-                        .offset(x: 0, y: -25)
+                        .offset(x: 0, y: -10)
                 }
 
                 
@@ -53,6 +56,13 @@ struct FriendsView: View {
                 }.frame(width: 340, height: 420)
                 .cornerRadius(8)
                     .shadow(radius: 10)
+            }.animation(Animation.interactiveSpring(response: 0.7, dampingFraction: 3/5, blendDuration: 2))
+                .offset(x: slideIn ? 0 : -400, y: 0)
+            .onAppear() {
+                self.slideIn = true
+            }
+            .onDisappear() {
+                self.slideIn = false
             }
 
             
@@ -74,12 +84,15 @@ struct UserRow: View {
                 VStack (alignment: .leading) {
                     Text(user.username)
                         .font(.system(.title, design: .rounded))
+                        .foregroundColor(Color.black)
                     Text(user.carbon_footprint)
                         .font(.system(.subheadline, design: .rounded))
+                        .foregroundColor(Color.black)
                 }.padding(.leading, 5)
                 Spacer()
                 Text(user.points)
                     .font(.system(.largeTitle, design: .rounded))
+                    .foregroundColor(Color.black)
             }
             
         }.listRowBackground(Color(red: 178/255, green: 216/255, blue: 216/255))
