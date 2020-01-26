@@ -87,18 +87,26 @@ struct HomeView: View {
                 }.padding(.vertical)
 
                 List {
-                    Section(header: Text("Break Down")
-                        
-                        ) {
+                    Section(header: ZStack {
+                        Color(red: 178/255, green: 216/255, blue: 216/255).frame(width: 500, height: 30)
+                        Text("Break Down")
+                        Divider()
+                            .offset(x: 0, y: 10)
+                            .rotationEffect(.degrees(90))
+                    }) {
                             HStack {
                                 Text("Driving")
                                     .foregroundColor(Color.black)
                             
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 10, style: .circular)
+                                        .fill(Color(red: 138/255, green: 36/255, blue: 131/255))
                                         .frame(width: drawDrive ? 150 : 0, height: 55)
                                         .padding(.vertical)
+                                    .offset(x: 15, y: 0)
+                                    .shadow(radius: 8)
                                         .animation(Animation.easeOut(duration: 2.5))
+                                        
                                         .onAppear() {
                                             self.drawDrive = true
                                         }
@@ -109,25 +117,27 @@ struct HomeView: View {
                                 .foregroundColor(Color.black)
                             ZStack {
                                 RoundedRectangle(cornerRadius: 10, style: .circular)
-                                    .fill(LinearGradient(gradient: Gradient(colors: [.green, .yellow, .red]), startPoint: .leading, endPoint: .trailing))
-                                    .frame(width: drawFood ? 250 : 0, height: 55)
+                                    .fill(Color(red: 255/255, green: 182/255, blue: 71/255))
+                                    .frame(width: drawFood ? 230 : 0, height: 55)
                                     .padding(.vertical)
+                                    .shadow(radius: 8)
                                     .animation(Animation.easeOut(duration: 2.5))
-                                    .offset(x: 15, y: 0)
+                                    .offset(x: 30, y: 0)
                                     .onAppear() {
                                         self.drawFood = true
                                     }
                             }
                         }.listRowBackground(Color(red: 178/255, green: 216/255, blue: 216/255).opacity(1))
                         HStack {
-                            Text("Other")
+                            Text("Activity")
                                 .foregroundColor(Color.black)
                             ZStack {
                                 RoundedRectangle(cornerRadius: 10, style: .circular)
-                                    .fill(LinearGradient(gradient: Gradient(colors: [.green, .green, .green, .yellow]), startPoint: .leading, endPoint: .trailing))
-                                    .frame(width: drawOther ? 50 : 0, height: 55)
+                                    .fill(Color(red: 41/255, green: 112/255, blue: 153/255))
+                                    .frame(width: drawOther ? 180 : 0, height: 55)
                                     .padding(.vertical)
                                     .offset(x: 10, y: 0)
+                                    .shadow(radius: 8)
                                     .animation(Animation.easeOut(duration: 2.5))
                                     .onAppear() {
                                         self.drawOther = true
