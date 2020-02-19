@@ -6,23 +6,6 @@
 //  Copyright © 2020 MrGoose. All rights reserved.
 //
 
-    /*
-    Arc(startAngle: .degrees(270), endAngle: .degrees(80), clockwise: false)
-        .stroke(Color.red, style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
-        .frame(width: 300, height: 300)
-    Arc(startAngle: .degrees(0), endAngle: .degrees(360), clockwise: false)
-        .stroke(Color.red.opacity(0.1), lineWidth: 10)
-        .frame(width: 300, height: 300)
-        
-    
-    Arc(startAngle: .degrees(270), endAngle: .degrees(200), clockwise: false)
-        .stroke(Color.green, style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
-        .frame(width: 270, height: 270)
-    Arc(startAngle: .degrees(0), endAngle: .degrees(360), clockwise: false)
-        .stroke(Color.green.opacity(0.1), lineWidth: 10)
-    .frame(width: 270, height: 270)
-        
-*/
 
 import SwiftUI
 
